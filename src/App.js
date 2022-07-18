@@ -4,7 +4,14 @@ import Login from "./Login.js";
 import JobBoard from "./JobBoard";
 import JobDetail from "./JobDetail";
 
+import JOBS from './Jobs.js'
+import { useState } from "react";
+
+
 export default function App() {
+
+  const[allJobs, setAllJobs] = useState(JOBS)
+
   return (
     <div className="App">
       <Routes>
