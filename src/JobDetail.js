@@ -1,4 +1,5 @@
 export default function JobDetail() {
-    return <></>;
-  }
-  
+  return (
+    <></>
+  );
+}

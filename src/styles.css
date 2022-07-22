@@ -1,5 +1,5 @@
 body {
-  background-color: #f0f2f4;
+  background-color: red;
   margin: 0;
 }
 .App {
@@ -7,5 +7,5 @@ body {
   text-align: center;
   display: flex;
   justify-content: center;
-  margin-top: 25vh;
+  margin-top: none;
 }
