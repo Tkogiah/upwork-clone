@@ -1,8 +1,8 @@
-import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import Navbar from "./Navbar";
 import { BodyBox, RowBox, ColumnBox, Search, StyledInputBase, SearchButton, AsideTypography, MainTypography } from "./StyledComponents";
 import SearchIcon from '@mui/icons-material/Search';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 
 
@@ -63,7 +63,7 @@ export default function JobBoard() {
               </SearchButton>
             </RowBox>
             <ColumnBox BGC='white'sx={{
-              
+              marginBottom: '2px'
             }}>
               <MainTypography sx={{
                 paddingTop: '25px',
@@ -73,7 +73,10 @@ export default function JobBoard() {
               </MainTypography>
               <MainTypography>AMOUNT</MainTypography>
               <MainTypography>TIME</MainTypography>
-              <MainTypography>LOCATION</MainTypography>
+              <MainTypography>
+              <LocationOnIcon sx={{color: '#39B54A'}}/>
+                LOCATION
+              </MainTypography>
               <MainTypography> kjashdfkjashdjkhas </MainTypography>
             </ColumnBox>
               
