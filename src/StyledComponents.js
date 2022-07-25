@@ -76,7 +76,21 @@ export const BodyBox = styled(Box)(() => ({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
-  alignItems: 'center' 
+  alignItems: 'center',
+  boxSizing: 'border-box' 
+}));
+
+export const LayoutBox = styled(Box)(() => ({
+  backgroundColor: '#f0f2f4',
+  width: '100vw',
+  height: '99vh',
+  margin: 'none',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  boxSizing: 'border-box',
+  padding: '65px 11vw 0px 11vw',
 }));
 
 export const Search = styled('div')(() => ({
@@ -98,7 +112,7 @@ export const StyledInputBase = styled(InputBase)(() => ({
 export const NavItems = styled('div')(() => ({
   display: 'flex',
   flexDirection: 'row',
-  justifyContent: 'space-evenly',
+  justifyContent: 'end',
   alignItems: 'center',
   color: 'white',
   width: '30vw'
@@ -124,7 +138,6 @@ export const AsideTypography = styled(Typography)(() => ({
 export const MainTypography = styled(Typography)(() => ({
   color: '#666666',
   textAlign: 'left',
-  paddingBottom: '10px',
-  paddingLeft: '25px',
+  paddingBottom: '15px',
   fontSize: '15px'
 }))

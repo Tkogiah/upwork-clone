@@ -1,90 +1,51 @@
 import { Box } from "@mui/system";
-import Navbar from "./Navbar";
-import { BodyBox, RowBox, ColumnBox, Search, StyledInputBase, SearchButton, AsideTypography, MainTypography } from "./StyledComponents";
-import SearchIcon from '@mui/icons-material/Search';
+import { ColumnBox, MainTypography } from "./StyledComponents"
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 
-
-
-export default function JobBoard() {
+export default function JobBoard({setAllJobs}) {
   return (
-    <Box>
-      <Navbar />
-      <BodyBox sx={{
-        justifyContent: 'flex-start',
-        paddingTop: '65px'
+    <>
+    console.log(JOBS)
+      <ColumnBox BGC='white' sx={{
+        width: '100%', 
+        height: 'auto',
+        boxSizing: 'border-box',
+        marginBottom: '3px'
       }}>
-        <RowBox sx={{
-          width: '100vw'
+        <ColumnBox sx={{
+          boxSizing: 'border-box',
+          padding: '3% 3%'
         }}>
-          {/* Left side */}
-          <ColumnBox sx={{ 
-            textAlign: 'right',
-            marginRight: '10px',
-            paddingRight: '20px',
-            marginLeft: '200px' 
+          <MainTypography 
+            onClick={() => setAllJobs(true)}
+            sx={{
+            fontSize: '20px',
+            paddingBottom: '25px'
           }}>
-              <AsideTypography variant="h5" sx={{
-                fontSize: '24px',
-                height: '40px',
-                marginBottom: '50px',
-                display: 'flex',
-                alignItems: 'center',
-              }}>
-                Find Work
-              </AsideTypography>
-            
-            <AsideTypography variant='h6' sx={{
-              fontSize: '20px',
-            }}>
-              Categories
-            </AsideTypography>
-            <AsideTypography>Front End Dev</AsideTypography>
-            <AsideTypography>Design</AsideTypography>
-            <AsideTypography>E-Commerce</AsideTypography>
-          </ColumnBox>
-
-          {/* right side */}
-          <ColumnBox sx={{ 
-            textAlign: 'left',
-            marginLeft: '10px' 
+            Front End Software Developer
+          </MainTypography>
+          <MainTypography>
+            Hourly: $45.00
+          </MainTypography>
+          <MainTypography>
+            Posted 50 minutes ago
+          </MainTypography>
+          <MainTypography>
+            <LocationOnIcon sx={{
+              color: '#39B54A', 
+              fontSize: '15px'
+            }}/>
+            Remote, United States
+          </MainTypography>
+          <MainTypography sx={{
+            paddingTop: '10px', 
+            fontSize: '13px'
           }}>
-            <RowBox>              
-              <Search sx={{
-                borderColor: 'white', 
-                backgroundColor: 'white', 
-                width: '780px',
-                marginBottom: '65px'
-              }}>
-                <StyledInputBase />
-              </Search>
-              <SearchButton>
-                <SearchIcon />
-              </SearchButton>
-            </RowBox>
-            <ColumnBox BGC='white'sx={{
-              marginBottom: '2px'
-            }}>
-              <MainTypography sx={{
-                paddingTop: '25px',
-                fontSize: '20px'
-              }}>
-                Title
-              </MainTypography>
-              <MainTypography>AMOUNT</MainTypography>
-              <MainTypography>TIME</MainTypography>
-              <MainTypography>
-              <LocationOnIcon sx={{color: '#39B54A'}}/>
-                LOCATION
-              </MainTypography>
-              <MainTypography> kjashdfkjashdjkhas </MainTypography>
-            </ColumnBox>
-              
-          </ColumnBox>
-        </RowBox>
-
-      </BodyBox>
-    </Box>
+            this is the paragraph section in it we test the limits of the type of content that can be contained within this specific typography. We want to ensure that the page will grow in height to account for the specific length of this paragraph. We also would like to ensure that the right side padding of the container box that wraps the typography in this section is properly working so that we don't find out after the JSON file is pulled from that it isn't properly displayed.
+          </MainTypography>
+        </ColumnBox>
+      </ColumnBox>
+    </>
   );
 }
   

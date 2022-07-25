@@ -7,6 +7,7 @@ import { useEffect } from "react";
 
 import JOBS from './Jobs.js'
 import { useState } from "react";
+import Layout from "./Layout";
 
 
 export default function App() {
@@ -25,7 +26,7 @@ export default function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Login setLoggedIn={setLoggedIn}/>} />
-        <Route path="/jobs" element={<JobBoard />}/>
+        <Route path="/jobs" element={<Layout setAllJobs={setAllJobs} />}/>
         <Route path="/job/:id" element={<JobDetail />} />
       </Routes>
     </div>

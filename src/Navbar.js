@@ -4,8 +4,6 @@ import { Typography } from "@mui/material";
 
 
 export default function Navbar() {
-
-
   return (
     <NavBox>
         <NavToolbar>
@@ -16,10 +14,14 @@ export default function Navbar() {
                 />
             </Search>
             <NavItems>
-                <Typography>
+                <Typography sx={{
+                    paddingLeft: '10%',
+                }}>
                     Find a Job
                 </Typography>
-                <Typography >
+                <Typography sx={{
+                    paddingLeft: '10%',
+                }}>
                     Login
                 </Typography>
             </NavItems>
