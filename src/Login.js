@@ -1,4 +1,4 @@
-import { PrimaryButton, PrimaryInput, MainBox, BodyBox } from "./StyledComponents";
+import { PrimaryButton, PrimaryInput, MainBox, LoginContainer } from "./StyledComponents";
 import { InputAdornment } from "@mui/material";
 import { FormControl } from "@mui/material";
 import { AccountCircle } from "@mui/icons-material";
@@ -7,7 +7,7 @@ import { Typography } from "@mui/material";
 
 export default function Login({setLoggedIn}) {
   return (
-    <BodyBox>
+    <LoginContainer>
       <MainBox sx={{ '& > :not(style)': { m: 1 } }} component="form">
         <Typography variant="h5" sx={{ p: '20px 0 10px 0', color: '#666666'}}>
           Log in
@@ -48,6 +48,6 @@ export default function Login({setLoggedIn}) {
         </FormControl>
     </MainBox>
       
-    </BodyBox>
+    </LoginContainer>
   );
 }

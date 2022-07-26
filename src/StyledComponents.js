@@ -68,10 +68,10 @@ export const NavToolbar = styled(Toolbar)(() => ({
   justifyContent: 'space-between'
 }));
 
-export const BodyBox = styled(Box)(() => ({
+export const LoginContainer = styled(Box)(() => ({
   backgroundColor: '#f0f2f4',
   width: '100vw',
-  height: '99vh',
+  height: '100vh',
   margin: 'none',
   display: 'flex',
   flexDirection: 'column',
@@ -83,14 +83,14 @@ export const BodyBox = styled(Box)(() => ({
 export const LayoutBox = styled(Box)(() => ({
   backgroundColor: '#f0f2f4',
   width: '100vw',
-  height: '99vh',
+  minHeight: '100vh',
   margin: 'none',
   display: 'flex',
   flexDirection: 'column',
-  justifyContent: 'center',
+
   alignItems: 'center',
   boxSizing: 'border-box',
-  padding: '65px 11vw 0px 11vw',
+  padding: '65px 11vw 0px 11vw'
 }));
 
 export const Search = styled('div')(() => ({

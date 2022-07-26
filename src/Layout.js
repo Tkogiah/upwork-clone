@@ -1,18 +1,35 @@
-import { Box } from "@mui/system";
-import { RowBox, LayoutBox, ColumnBox, AsideTypography, Search, SearchButton, StyledInputBase} from "./StyledComponents"
-import SearchIcon from '@mui/icons-material/Search'
+import { Categories } from './Categories';
+import { SearchLayout } from './SearchLayout';
+import { RowBox, LayoutBox, ColumnBox, AsideTypography } from "./StyledComponents"
+import { useState } from 'react';
 
 import Navbar from "./Navbar";
 import JobBoard from "./JobBoard";
 
-export default function Layout({setAllJobs}) {
-  return (
-    <Box>
+
+export default function Layout({ allJobs }) {
+    const[currentCategory, setCurrentCategory] = useState(allJobs)
+
+    const JOB_CATEGORIES = []
+    const FILTERED_JOBS = []
+
+    for(let job of allJobs) {
+        if(!JOB_CATEGORIES.includes(job.category)) {
+            JOB_CATEGORIES.push(job.category)
+        }
+    }
+    for(let job of allJobs) {
+        if (job.category === currentCategory) {
+            FILTERED_JOBS.push(job)
+        }
+    }
+    console.log(FILTERED_JOBS)
+    return (
+    <ColumnBox>
       <Navbar />
       <LayoutBox>
             <RowBox sx={{
             width: '100%',
-            height: '100%',
             boxSizing: 'border-box'
             }}>
                 {/* LEFT SIDE CONTAINER */}
@@ -28,47 +45,38 @@ export default function Layout({setAllJobs}) {
                     }}>
                         Find Work
                     </AsideTypography>
-                    <AsideTypography sx={{
-                    fontSize: '20px'
-                    }}>
+                    <AsideTypography
+                    onClick={() => setCurrentCategory(allJobs)}
+                    sx={
+                    currentCategory === allJobs 
+                    ? {color: "#39B54A", fontSize: '20px'}
+                    : {fontSize: '20px'} 
+                    }
+                    > 
                         Categories
                     </AsideTypography>
-                    <AsideTypography>
-                        Front End Dev
-                    </AsideTypography>
-                    <AsideTypography>
-                        Design
-                    </AsideTypography>
-                    <AsideTypography>
-                        E-commerce
-                    </AsideTypography>
+                    <Categories 
+                    JOB_CATEGORIES={ JOB_CATEGORIES }
+                    setCurrentCategory={ setCurrentCategory}
+                    currentCategory={currentCategory}
+                    />
                 </ColumnBox>
 
                 {/* RIGHT SIDE CONTAINER */}
                 <ColumnBox sx={{
                 width: '85%',
-                height: '100%'
+                height: 'auto'
                 }}>
-                    <RowBox sx={{ 
-                    width: '100%', 
-                    marginBottom: '65px'
-                    }}>
-                        <Search sx={{
-                        border: `3px solid #f0f2f4`,
-                        width: '100%',
-                        backgroundColor: 'white'
-                        }}>
-                            <StyledInputBase placeholder="Search…" />
-                        </Search>
-                        <SearchButton>
-                            <SearchIcon />
-                        </SearchButton>
-                    </RowBox>
-                    <JobBoard setAllJobs={setAllJobs}/>
+                    <SearchLayout     />
+                    {currentCategory === allJobs
+                        ?<JobBoard filteredJobs={ allJobs }/>
+                        :<JobBoard filteredJobs={ FILTERED_JOBS }/>
+                    }
                 </ColumnBox>
             </RowBox>
         </LayoutBox>
-    </Box>
+    </ColumnBox>
   );
 }
   
+    
