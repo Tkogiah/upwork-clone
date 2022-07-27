@@ -1,5 +1,6 @@
 import { NavBox, Search, StyledInputBase, NavItems, NavToolbar } from "./StyledComponents";
 import { Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 
 
 
@@ -14,16 +15,33 @@ export default function Navbar() {
                 />
             </Search>
             <NavItems>
-                <Typography sx={{
+                <Link style={{
+                color: 'white', 
+                textDecoration: 'none', 
+                width: '100px',
+                display: "flex",
+                 }} 
+                to={'/jobs'}>
+                    <Typography sx={{
+                        paddingLeft: '0px'
+                    }}>
+                        Find a Job
+                    </Typography>
+                </Link>
+                <Link style={{
+                color: 'white', 
+                textDecoration: 'none', 
+                width: '100px',
+                display: "flex",
+                justifyContent: 'flex-end'
+                 }} 
+                to={'/'}>
+                    <Typography sx={{
                     paddingLeft: '10%',
-                }}>
-                    Find a Job
-                </Typography>
-                <Typography sx={{
-                    paddingLeft: '10%',
-                }}>
-                    Login
-                </Typography>
+                    }}>
+                        Login
+                    </Typography>
+                </Link>   
             </NavItems>
             
         </NavToolbar>
