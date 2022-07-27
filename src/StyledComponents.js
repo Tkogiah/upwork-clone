@@ -56,9 +56,7 @@ export const NavBox = styled(Box)(() => ({
   margin: 'none',
   display: 'flex',
   flexDirection: 'row',
-  justifyContent: 'center',
-  position: 'sticky',
-  top: '0px'
+  justifyContent: 'center'
 }));
 
 export const NavToolbar = styled(Toolbar)(() => ({
