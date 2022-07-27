@@ -20,13 +20,13 @@ export default function JobBoard({ filteredJobs }) {
             boxSizing: 'border-box',
             padding: '3% 3%'
           }}>
-            <Link style={{color: '#666666', textDecoration: 'none'}} to={`/job/${job.id}`}>
+            <Link style={{color: '#666666', textDecoration: 'none'}} 
+            to={`/job/${job.id}`}>
               <MainTypography
               sx={{
               fontSize: '20px',
               paddingBottom: '25px'
               }}>
-                
                 {job.title}
               </MainTypography>
             </Link>  

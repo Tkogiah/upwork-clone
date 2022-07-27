@@ -1,61 +1,81 @@
+import { useParams } from 'react-router-dom';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import Navbar from "./Navbar";
 import { ColumnBox, LayoutBox, RowBox, AsideTypography, PrimaryButton,  } from "./StyledComponents";
 
-export default function JobDetail({allJobs}) {
+export default function JobDetail( {allJobs}) {
+  const params = useParams()
+
+  let JOB_PARAMS = []
+  for(let job of allJobs) {
+
+    if(params.id == job.id) {
+      JOB_PARAMS.push(job)
+      console.log('we got it partner')
+    }
+  }
+  
+  //console.log(JOB_PARAMS)
+
   return (
     <ColumnBox>
       <Navbar />
       <LayoutBox>
-            <RowBox sx={{
-            width: '100%',
-            boxSizing: 'border-box'
+        {JOB_PARAMS.map(job => (
+          <RowBox sx={{
+          width: '100%',
+          boxSizing: 'border-box'
+          }}>
+            {/* LEFT SIDE CONTAINER */}
+            <ColumnBox sx={{
+            boxSizing: 'border-box',
+            width: '65%',
+            height: '100%', 
+            fontSize: '15px',
+            marginRight: '5%'
             }}>
-                {/* LEFT SIDE CONTAINER */}
-                <ColumnBox sx={{
-                boxSizing: 'border-box',
-                width: '65%',
-                height: '100%', 
-                fontSize: '15px',
-                marginRight: '5%'
-                }}>
-                    <AsideTypography variant='h5' sx={{
-                    fontSize: '30px',
-                    color: '#666666',
-                    paddingBottom: '35px',
-                    borderBottom: '2px solid lightgrey'
-                    }}>
-                        Front End Software Developer
-                    </AsideTypography>
-                    <ColumnBox sx={{
-                    fontSize: '15px',
-                    padding: '35px 0px',
-                    borderBottom: '2px solid lightgrey'
-                    }}>
-                      <AsideTypography> 
-                          Front End Dev
-                      </AsideTypography>
-                      <AsideTypography> 
-                          Front End Dev
-                      </AsideTypography>
-                      <AsideTypography> 
-                          Front End Dev
-                      </AsideTypography>
-                    </ColumnBox>
-                    <ColumnBox sx={{
-                    fontSize: '15px',
-                    padding: '35px 0px',
-                    borderBottom: '2px solid lightgrey'
-                    }}>
-                      <AsideTypography>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                      </AsideTypography> 
-                    </ColumnBox>
-                    
-                    
-                </ColumnBox>
+              <AsideTypography variant='h5' sx={{
+              fontSize: '30px',
+              color: '#666666',
+              paddingBottom: '35px',
+              borderBottom: '2px solid lightgrey'
+              }}>
+                {job.title}
+              </AsideTypography>
+              <ColumnBox sx={{
+              fontSize: '15px',
+              padding: '35px 0px',
+              borderBottom: '2px solid lightgrey'
+              }}>
+                <AsideTypography> 
+                  {job.category}
+                </AsideTypography>
+                <AsideTypography> 
+                  {job.postedTime}
+                </AsideTypography>
+                <RowBox>
+                  <LocationOnIcon sx={{
+                  color: '#39B54A',
+                  fontSize: '20px',
+                  paddingRight: '5px'
+                  }}/>
+                  <AsideTypography> 
+                  {job.remote ? 'remote, ': ''}{job.location}
+                  </AsideTypography>
+                </RowBox>
+              </ColumnBox>
+              <ColumnBox sx={{
+              fontSize: '15px',
+              padding: '35px 0px',
+              borderBottom: '2px solid lightgrey'
+              }}>
+                <AsideTypography>
+                {job.description}
+                </AsideTypography> 
+              </ColumnBox>       
+            </ColumnBox>
 
                 {/* RIGHT SIDE CONTAINER */}
                 <ColumnBox sx={{
@@ -117,7 +137,7 @@ export default function JobDetail({allJobs}) {
                       paddingRight: '5px'
                       }}/>
                       <AsideTypography sx={{paddingBottom: '0px'}}> 
-                          United States
+                          {job.location}
                       </AsideTypography>
                     </RowBox>
                   </ColumnBox>
@@ -150,6 +170,7 @@ export default function JobDetail({allJobs}) {
                   </ColumnBox>
                 </ColumnBox>
             </RowBox>
+        ))}
         </LayoutBox>
     </ColumnBox>
   );

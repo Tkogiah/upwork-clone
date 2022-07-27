@@ -23,7 +23,6 @@ export default function Layout({ allJobs }) {
             FILTERED_JOBS.push(job)
         }
     }
-    console.log(FILTERED_JOBS)
     return (
     <ColumnBox>
       <Navbar />
