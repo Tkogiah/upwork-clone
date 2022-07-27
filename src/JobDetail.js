@@ -10,14 +10,12 @@ export default function JobDetail( {allJobs}) {
 
   let JOB_PARAMS = []
   for(let job of allJobs) {
-
-    if(params.id == job.id) {
+    if(Number(params.id) === job.id) {
       JOB_PARAMS.push(job)
-      console.log('we got it partner')
+
     }
   }
-  
-  //console.log(JOB_PARAMS)
+
 
   return (
     <ColumnBox>
