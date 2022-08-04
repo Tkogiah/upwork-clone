@@ -1,7 +1,7 @@
 import SearchIcon from '@mui/icons-material/Search'
 import { RowBox, Search, SearchButton, StyledInputBase } from './StyledComponents'
 
-export function SearchLayout({}) {
+export function SearchLayout() {
   return (
     <RowBox sx={{
     width: '100%',
