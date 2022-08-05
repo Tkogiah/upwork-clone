@@ -12,13 +12,14 @@ import Layout from "./Layout";
 export default function App() {
   const navigate = useNavigate();
 
-  const[allJobs, setAllJobs] = useState(JOBS)
+  const[allJobs] = useState(JOBS)
   const [loggedIn, setLoggedIn] = useState(false);
   
   useEffect(() => {
     if (loggedIn) {
       navigate('/jobs');
     }
+// eslint-disable-next-line    
   }, [loggedIn]);
 
   return (
